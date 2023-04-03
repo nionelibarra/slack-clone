@@ -4,6 +4,9 @@ This project was coded by Nionel Ibarra in reference to
 
 https://youtu.be/tbvguOj8C-o?list=PLf16UKl7nR5BFjyxjXHzyMKxRw8BJf56O&t=22572
 
+4/3/24 (3:24PM)
+https://youtu.be/tbvguOj8C-o?list=PLf16UKl7nR5BFjyxjXHzyMKxRw8BJf56O&t=24261
+
 In the project directory, you can run:
 
 ### `npm start`
