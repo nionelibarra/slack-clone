@@ -3,18 +3,29 @@ import './App.css';
 import {Routes, Route} from "react-router-dom";
 import Home from './pages/Home';
 import Header from './components/Header';
+import styled from 'styled-components';
+import Sidebar from './components/Sidebar';
 
 function App() {
     return (
         <>
-            <Routes>
+            <Header/>
+            <AppBody>
+                <Sidebar/>
+                <Routes>
+                    <Route path="/"
+                        element={<Home/>}/>
+                </Routes>
+            </AppBody>
 
-                <Route path="/"
-                    element={<Header/>}/>
-
-            </Routes>
         </>
     );
 }
 
 export default App;
+
+const AppBody = styled.div `
+display: flex;
+height: 100vh;
+
+`
