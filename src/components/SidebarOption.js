@@ -17,7 +17,7 @@ const addChannel=()=>
     if (channelName)
     {
         setDoc(doc(roomsRef),{
-            name:channelName,
+            channel_name:channelName,
         }).then(returnData=>console.log(returnData))
     }
 }

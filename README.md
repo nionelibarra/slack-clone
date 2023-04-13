@@ -4,8 +4,8 @@ This project was coded by Nionel Ibarra in reference to
 
 https://youtu.be/tbvguOj8C-o?list=PLf16UKl7nR5BFjyxjXHzyMKxRw8BJf56O&t=22572
 
-13/04/2023 (10:14 AM)
-https://youtu.be/tbvguOj8C-o?list=PLf16UKl7nR5BFjyxjXHzyMKxRw8BJf56O&t=28946
+13/04/2023 (12:34 PM)
+https://youtu.be/tbvguOj8C-o?list=PLf16UKl7nR5BFjyxjXHzyMKxRw8BJf56O&t=29703
 In the project directory, you can run:
 
 ### `npm start`

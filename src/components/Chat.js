@@ -5,10 +5,19 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useSelector } from "react-redux";
 import { selectRoomId } from "../features/appSlice";
 import ChatInput from "./ChatInput";
+import { useCollection, useDocumentData } from 'react-firebase-hooks/firestore';
+import { collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 
 function Chat() {
     const roomId = useSelector(selectRoomId);
+    const roomsRef = doc(db, "rooms", roomId);
+    const messagesRef  = collection(db,"rooms",roomId,"messages")
+    const [roomDetails] = useDocumentData(roomsRef);
+    const [roomMessages] = useCollection(messagesRef)
 
+    console.log(roomMessages)
+    console.log(roomDetails)
     return (
         <ChatContainer>
             <>
