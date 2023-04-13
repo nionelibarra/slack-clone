@@ -1,20 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { db,firebaseApp } from '../firebase/firebase'
-import { getFirestore,collection, doc, setDoc } from 'firebase/firestore'
-import { useCollection } from 'react-firebase-hooks/firestore';
+import { db } from '../firebase/firebase'
+import { collection, doc, setDoc } from 'firebase/firestore'
+import { useDispatch } from 'react-redux'
+import { enterRoom } from '../features/appSlice'
 
-function SidebarOption({Icon, title, addChannelOption}) {
 
-    const [value, loading, error] = useCollection(
-        collection(getFirestore(firebaseApp), 'rooms'),
-        {
-          snapshotListenOptions: { includeMetadataChanges: true },
-        }
-      );
-
-      console.log(value)
-
+function SidebarOption({Icon, title, addChannelOption,id}) {
+const dispatch = useDispatch();
 const roomsRef = collection(db,"rooms")
 
 const addChannel=()=>
@@ -29,9 +22,14 @@ const addChannel=()=>
     }
 }
 
-const selectChannel = ()=>
+const selectChannel = () =>
 {
-
+    if(id)
+    {
+        dispatch(enterRoom({
+            roomId:id
+        }))
+    }
 }
 
     return (
@@ -85,6 +83,8 @@ cursor: pointer;
 }
 `
 
-const SidebarOptionChannel = styled.div `
+const SidebarOptionChannel = styled.h3 `
+    padding: 10px 0;
+    font-weight: 300;
 
 `
