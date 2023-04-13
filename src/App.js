@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import styled from 'styled-components';
 import Sidebar from './components/Sidebar';
+import Chat from './components/Chat';
 
 function App() {
     return (
@@ -12,10 +13,11 @@ function App() {
             <Header/>
             <AppBody>
                 <Sidebar/>
-                <Routes>
-                    <Route path="/"
-                        element={<Home/>}/>
-                </Routes>
+                <Chat/>
+                {/* <Routes>
+                    <Route path="/" element={<Home/>}/>  
+                </Routes> */}
+              
             </AppBody>
 
         </>
@@ -27,5 +29,5 @@ export default App;
 const AppBody = styled.div `
 display: flex;
 height: 100vh;
-
 `
+
