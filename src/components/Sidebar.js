@@ -20,7 +20,7 @@ import {firebaseApp } from '../firebase/firebase'
 
 function Sidebar() {
 
-    const [channels, loading, error] = useCollection(
+    const [channels] = useCollection(
         collection(getFirestore(firebaseApp), 'rooms'),
         {
           snapshotListenOptions: { includeMetadataChanges: true },

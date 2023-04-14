@@ -5,7 +5,7 @@ import {db} from '../firebase/firebase'
 import {serverTimestamp, addDoc, collection} from 'firebase/firestore'
 
 
-function ChatInput({channelId,channelName}) {
+function ChatInput({channelId,channelName,chatRef}) {
     const [input, setInput] = useState(null)
   
 
@@ -25,6 +25,10 @@ function ChatInput({channelId,channelName}) {
             userImage: "https://i.pinimg.com/originals/b6/e6/99/b6e699704a4319e1417db280b1908621.jpg"
           });
 
+
+          chatRef.current.scrollIntoView({behavior:'smooth',block:'end'});
+          
+      
         setInput("")
 
     }
