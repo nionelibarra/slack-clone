@@ -5,7 +5,7 @@ import {db} from '../firebase/firebase'
 import {serverTimestamp, addDoc, collection} from 'firebase/firestore'
 
 
-function ChatInput({channelId}) {
+function ChatInput({channelId,channelName}) {
     const [input, setInput] = useState(null)
   
 
@@ -38,7 +38,7 @@ function ChatInput({channelId}) {
                         e => setInput(e.target.value)
                     }
                     type="text"
-                    placeholder={`Message Room`}/>
+                    placeholder={`Message #${channelName}`}/>
                 <Button style={
                         {display: 'none'}
                     }

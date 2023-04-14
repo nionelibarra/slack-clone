@@ -11,20 +11,20 @@ import { db } from "../firebase/firebase";
 
 function Chat() {
     const roomId = useSelector(selectRoomId);
-    const roomsRef = doc(db, "rooms", roomId);
-    const messagesRef  = collection(db,"rooms",roomId,"messages")
+    const roomsRef = roomId &&  doc(db, "rooms", roomId);
+    const messagesRef  = roomId && collection(db,"rooms",roomId,"messages")
     const [roomDetails] = useDocumentData(roomsRef);
     const [roomMessages] = useCollection(messagesRef)
 
     console.log(roomMessages)
-    console.log(roomDetails)
+    console.log(roomDetails?.channel_name)
     return (
         <ChatContainer>
             <>
             <Header>
                 <HeaderLeft>
                     <h4>
-                        <strong>#Room-name</strong>
+                        <strong>#{roomDetails?.channel_name}</strong>
                     </h4>
                     <StarOutlineIcon/>
                 </HeaderLeft>
@@ -41,7 +41,7 @@ function Chat() {
             </ChatMessages>
 
             <ChatInput
-            // channelName
+            channelName={roomDetails?.channel_name}
             channelId={roomId}
             />
             </>
