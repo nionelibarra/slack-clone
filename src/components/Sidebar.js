@@ -15,11 +15,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { getFirestore,collection} from 'firebase/firestore'
-import {firebaseApp } from '../firebase/firebase'
+import {auth, firebaseApp } from '../firebase/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 function Sidebar() {
-
+    const [user] = useAuthState(auth); 
     const [channels] = useCollection(
         collection(getFirestore(firebaseApp), 'rooms'),
         {
@@ -34,7 +35,7 @@ function Sidebar() {
                     <h2>Spuadron HQ</h2>
                     <h3>
                         <FiberManualRecordIcon/>
-                        Neyo Ibarra
+                        {user.displayName}
                     </h3>
                 </SidebarInfo>
                 <CreateIcon/>
